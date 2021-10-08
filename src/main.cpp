@@ -4,16 +4,17 @@
 #include <dados.h>
 //Dados pessoais dos números e nomes cadastrados.
 /*
-char* constTextos[];
-char* constNumeros[];
-char* constNomes[];
+Dados definidos na biblioteca "dados.h"
+const char* constTextos[];
+const char* constNumeros[];
+const char* constNomes[];
 */
 
 //Pinos de comunicação com o SIM800L
 #define SIM800_TX_PIN 7
 #define SIM800_RX_PIN 8
 
-int pinVetor[]={
+const int pinVetor[]={
   A0, //FALTA DE ENERGIA
   A1, //CHILLER 1 FALHA GERAL
   A2, //CHILLER 2 FALHA GERAL
@@ -37,11 +38,11 @@ const int lenNumeros = sizeof(constNumeros)/sizeof(constNumeros[0]);
 //Software serial para a comunicação com o SIM800L
 SoftwareSerial serialSIM800(SIM800_TX_PIN, SIM800_RX_PIN);
 
-void mandarMSG(char* nome, char* numero ,char* mensagem, SoftwareSerial* moduloSMS);
+void mandarMSG(const char* nome, const char* numero , const char* mensagem, SoftwareSerial* moduloSMS);
 void mandarMensagens(
-  char** nomes,
-  char** textos,
-  char** numeros,
+  const char** nomes,
+  const char** textos,
+  const char** numeros,
   int lenNumeros,
   int indice,
   SoftwareSerial* moduloSMS
@@ -95,9 +96,9 @@ void loop(){
 }
 
 void mandarMensagens(
-  char** nomes,
-  char** textos,
-  char** numeros,
+  const char** nomes,
+  const char** textos,
+  const char** numeros,
   int lenNumeros,
   int indice,
   SoftwareSerial* moduloSMS
@@ -107,7 +108,7 @@ void mandarMensagens(
   }
 }
 
-void mandarMSG(char* nome, char* numero ,char* mensagem, SoftwareSerial* moduloSMS){
+void mandarMSG(const char* nome, const char* numero , const char* mensagem, SoftwareSerial* moduloSMS){
   moduloSMS->write("AT+CMGF=1\r\n");
   delay(1000);
 
