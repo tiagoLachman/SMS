@@ -1,8 +1,7 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#include <dados.h>
-//Dados pessoais dos números e nomes cadastrados.
+#include <dados.h> //Dados pessoais dos números e nomes cadastrados.
 /*
 Dados definidos na biblioteca "dados.h"
 const char* constTextos[];
