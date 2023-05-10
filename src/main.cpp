@@ -136,7 +136,7 @@ void mandarMSG(const char* nome, const char* numero , const char* mensagem, Soft
   delay(1000);
 
   //Manda o conteúdo do SMS
-  tempString = String(nome)+", "+String(mensagem)+ " NA PROCOPIO.";
+  tempString = String(nome)+", "+String(mensagem);
   tempString.toCharArray(tempChar, 200);
   Serial.println(tempChar);
   moduloSMS->write(tempChar);
